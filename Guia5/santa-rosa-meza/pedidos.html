@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos | Panadería Santa Rosa</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/marca.css">
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-cafe">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index-bootstrap.html">Panadería Santa Rosa</a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menu"
+              aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index-bootstrap.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index-bootstrap.html#productos">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="pedidos.html">Pedidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index-bootstrap.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h1 class="mb-3">Haz tu pedido</h1>
+    <form id="form-pedido" class="card p-3 p-md-4" novalidate>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" id="nombre" class="form-control" autocomplete="name">
+        <p id="error-nombre" class="text-danger mb-0" role="alert"></p>
+      </div>
+
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono (9 dígitos)</label>
+        <input type="tel" id="telefono" class="form-control" autocomplete="tel">
+        <p id="error-telefono" class="text-danger mb-0" role="alert"></p>
+      </div>
+
+      <div class="mb-3">
+        <label for="producto" class="form-label">Producto</label>
+        <select id="producto" class="form-select">
+          <option value="">Elige un producto</option>
+          <option>Pan de yema</option>
+          <option>Pan francés</option>
+          <option>Pan chancay</option>
+          <option>Torta de chocolate</option>
+        </select>
+        <p id="error-producto" class="text-danger mb-0" role="alert"></p>
+      </div>
+
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" id="cantidad" class="form-control" min="1" value="1">
+        <p id="error-cantidad" class="text-danger mb-0" role="alert"></p>
+      </div>
+
+      <fieldset class="mb-3">
+        <legend class="form-label fs-6">Tienda de recojo</legend>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tienda" id="tienda1" value="Centro" checked>
+          <label class="form-check-label" for="tienda1">Tienda Centro</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tienda" id="tienda2" value="Segunda tienda">
+          <label class="form-check-label" for="tienda2">Segunda tienda</label>
+        </div>
+      </fieldset>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="acepto">
+        <label class="form-check-label" for="acepto">Acepto que me contacten para confirmar el pedido</label>
+        <p id="error-acepto" class="text-danger mb-0" role="alert"></p>
+      </div>
+
+      <button type="submit" class="btn btn-marca">Enviar pedido</button>
+      <p id="mensaje-exito" class="text-success fw-bold mt-3 mb-0" role="status"></p>
+    </form>
+  </main>
+
+  <footer style="text-align: center;">
+    <p>Panadería Santa Rosa</p>
+    <a href="../../index.html" style="color: black; display: inline-block;">Regresar a la página Principal</a>
+  </footer>
+
+</body>
+</html>

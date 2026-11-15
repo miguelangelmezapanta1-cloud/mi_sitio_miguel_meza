@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panadería Santa Rosa | Pan caliente todos los días</title>
+
+  <!-- 1. Estilos de Bootstrap 5.3.8 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- 2. Tus estilos, siempre después -->
+  <link rel="stylesheet" href="css/marca.css">
+
+  <!-- 3. JavaScript de Bootstrap y el tuyo -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"
+    defer></script>
+  <script src="js/pedido.js" defer></script>
+  <script src="js/vaciar.js" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-cafe">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index-bootstrap.html">Panadería Santa Rosa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu"
+        aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index-bootstrap.html">Inicio</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <section class="p-4 p-md-5 mb-4 rounded-3 bg-amarillo">
+      <h1 class="display-5 fw-bold">Pan caliente desde 1987</h1>
+      <p class="lead">Ahora también en nuestra segunda tienda.</p>
+      <a class="btn btn-marca btn-lg" href="#productos">Ver productos</a>
+    </section>
+
+    <section id="productos" class="mb-4">
+      <h2 class="mb-3">Nuestros productos</h2>
+      <div class="catalogo row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col">
+          <article class="producto card h-100" data-nombre="Pan de yema" data-precio="0.50">
+            <img src="img/pan-yema.jpg" class="card-img-top" alt="Canasta de panes de yema dorados recién horneados">
+            <div class="card-body">
+              <h3 class="card-title h5">Pan de yema</h3>
+              <p class="card-text"><span class="precio">S/ 0.50</span> la unidad</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <button type="button" class="btn btn-marca w-100 btn-anadir">Añadir</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="producto card h-100" data-nombre="Pan francés" data-precio="0.30">
+            <img src="img/pan-frances.jpg" class="card-img-top"
+              alt="Panes franceses crujientes recién salidos del horno">
+            <div class="card-body">
+              <h3 class="card-title h5">Pan francés</h3>
+              <p class="card-text"><span class="precio">S/ 0.30</span> la unidad</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <button type="button" class="btn btn-marca w-100 btn-anadir">Añadir</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="producto card h-100" data-nombre="Pan chancay" data-precio="0.40">
+            <img src="img/pan-chancay.jpg" class="card-img-top" alt="Panes chancay dulces con su brillo de azúcar">
+            <div class="card-body">
+              <h3 class="card-title h5">Pan chancay</h3>
+              <p class="card-text"><span class="precio">S/ 0.40</span> la unidad</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <button type="button" class="btn btn-marca w-100 btn-anadir">Añadir</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="producto card h-100" data-nombre="Torta de chocolate" data-precio="45.00">
+            <img src="img/torta-chocolate.jpg" class="card-img-top" alt="Torta de chocolate cubierta de crema oscura">
+            <div class="card-body">
+              <h3 class="card-title h5">Torta de chocolate</h3>
+              <p class="card-text"><span class="precio">S/ 45.00</span> la torta</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <button type="button" class="btn btn-marca w-100 btn-anadir">Añadir</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reto: acordeón de preguntas frecuentes -->
+    <section id="preguntas" class="mb-4">
+      <h2 class="mb-3">Preguntas frecuentes</h2>
+      <div class="accordion" id="faq">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+              aria-expanded="true" aria-controls="faq1">
+              ¿A qué hora sale el pan caliente?
+            </button>
+          </h3>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+            <div class="accordion-body">
+              Horneamos desde las 6:00 de la mañana y de nuevo a las 16:00.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+              aria-expanded="false" aria-controls="faq2">
+              ¿Puedo encargar una torta con anticipación?
+            </button>
+          </h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body">
+              Sí. Haz tu encargo desde la página de pedidos con al menos 24 horas de anticipación.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+              aria-expanded="false" aria-controls="faq3">
+              ¿Tienen reparto a domicilio?
+            </button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body">
+              Repartimos en los alrededores de ambas tiendas. Consúltanos al hacer tu pedido.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mi-pedido" class="card p-3" aria-labelledby="titulo-pedido">
+      <h2 id="titulo-pedido" class="h4" tabindex="-1">Mi pedido</h2>
+      <p id="pedido-vacio" class="text-body-secondary">
+        Tu pedido está vacío. Añade productos del catálogo.</p>
+      <ul id="lista-pedido" class="list-unstyled mb-3"></ul>
+      <p class="fs-5">Total: <strong id="total">S/ 0.00</strong></p>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="pedidos.html" class="btn btn-marca">Continuar con el pedido</a>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalVaciar">Vaciar
+          pedido</button>
+      </div>
+      <p id="aviso" class="visually-hidden" role="status"></p>
+    </section>
+  </main>
+
+  <div class="modal fade" id="modalVaciar" tabindex="-1" aria-labelledby="modalVaciarTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="modalVaciarTitulo">¿Vaciar tu pedido?</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          Se quitarán todos los productos. Esta acción no se puede deshacer.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmarVaciar" data-bs-dismiss="modal">Sí, vaciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reto: pie de página en tres columnas (se apilan en celular, 3 columnas desde md) -->
+  <footer id="contacto" class="bg-cafe text-white py-4 mt-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h2 class="h5">Nuestras tiendas</h2>
+          <p class="mb-1"><strong>Tienda Centro:</strong> Jr. Pizarro 450, Trujillo</p>
+          <p class="mb-0"><strong>Segunda tienda:</strong> Av. América Sur 1280, Trujillo</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h2 class="h5">Horario</h2>
+          <p class="mb-1">Lunes a sábado de 6:00 a 21:00</p>
+          <p class="mb-0">Domingos de 6:00 a 13:00</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h2 class="h5">Contacto</h2>
+          <p class="mb-1">Teléfono: 044 000 000</p>
+          <p class="mb-0">Correo: pedidos@santarosa.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <footer style="text-align: center;">
+    <a href="../../index.html" style="color: black; display: inline-block;">Regresar a la página Principal</a>
+  </footer>
+
+</body>
+</html>
