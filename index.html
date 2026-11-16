@@ -3,163 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrega de Guías |Miguel Angel Meza Panta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Entrega de Guías | Miguel Angel Meza Panta</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #141670;
-            color: #0f172a;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 35px 20px;
+            color: white;
+            overflow-x: hidden;
+            background:
+                radial-gradient(ellipse at 0% 0%, #0879ed 0%, transparent 30%),
+                radial-gradient(ellipse at 100% 100%, #134de0 0%, transparent 35%),
+                linear-gradient(135deg, #06113d, #111f80 65%, #070e38);
         }
 
-        /* Tarjeta central */
+        /* Decoración del fondo */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(65px);
+            pointer-events: none;
+        }
+
+        body::before {
+            background: rgba(0, 132, 255, 0.25);
+            top: -200px;
+            left: -180px;
+        }
+
+        body::after {
+            background: rgba(0, 85, 255, 0.25);
+            bottom: -200px;
+            right: -180px;
+        }
+
+        /* Tarjeta principal */
         .card-container {
-            background: #9d0c0c;
             width: 100%;
-            max-width: 480px;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-            text-align: center;
+            max-width: 650px;
+            padding: 42px 35px;
+            border-radius: 28px;
+            background: linear-gradient(
+                145deg,
+                rgba(12, 40, 125, 0.92),
+                rgba(3, 15, 65, 0.96)
+            );
+            border: 2px solid rgba(44, 123, 255, 0.75);
+            box-shadow:
+                0 25px 65px rgba(0, 0, 0, 0.4),
+                0 0 35px rgba(0, 105, 255, 0.18);
+            backdrop-filter: blur(15px);
+            animation: aparecer 0.8s ease;
         }
 
-        /* Encabezado y títulos */
-        .header-section h1 {
-            font-size: 1.85rem;
-            font-weight: 700;
-            color: #b6bdcc;
+        /* Encabezado */
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 42px;
+        }
+
+        .header-icon {
+            width: 85px;
+            height: 85px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1263ff, #1834ce);
+            border-radius: 22px;
+            box-shadow: 0 8px 25px rgba(0, 70, 255, 0.3);
+        }
+
+        .header-icon svg {
+            width: 43px;
+            height: 43px;
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 8px;
-            letter-spacing: -0.02em;
         }
 
         .nombre {
-            font-size: 1.05rem;
+            font-size: 1rem;
+            color: #b9c9ec;
             font-weight: 500;
-            color: #64748b;
-            margin-bottom: 32px;
         }
+
+        .linea {
+            width: 100px;
+            height: 4px;
+            margin-top: 16px;
+            background: #078cff;
+            border-radius: 10px;
+        }
+
+        /* Contenedor de guías */
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
+
         .btn-link {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
-            border-radius: 12px;
-            color: #94520d;
-            font-size: 1rem;
-            font-weight: 600;
+            gap: 15px;
+            padding: 14px 20px;
+            border-radius: 16px;
             text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-box {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .icon {
+            width: 27px;
+            height: 27px;
+            stroke-width: 2;
+        }
+
+        .arrow {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Botones azules */
+        .btn-primary {
+            background: linear-gradient(120deg, #1044a5, #173eae);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(120deg, #1763df, #2455d5);
+        }
+
+        /* Botones verdes */
+        .btn-success {
+            background: linear-gradient(120deg, #00ae43, #0ac83c);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(120deg, #00c853, #10e34d);
+        }
+
+        /* Animación de botones */
         .btn-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-link:hover .arrow {
+            transform: translateX(5px);
         }
 
         .btn-link:active {
-            transform: translateY(0);
-        }
-        .btn-primary {
-            background-color: #506aa4;
-        }
-        .btn-primary:hover {
-            background-color: #1d4ed8;
+            transform: scale(0.98);
         }
 
-        .btn-success {
-            background-color: #16a34a;
-        }
-        .btn-success:hover {
-            background-color: #15803d;
-        }
-        .icon {
-            width: 22px;
-            height: 22px;
-            min-width: 22px;
-            min-height: 22px;
-            stroke-width: 2;
-        }
-        .footer-info {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 32px;
-            padding-top: 20px;
-            border-top: 1px solid #f1f5f9;
+        .btn-link:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 4px;
         }
 
-        .badge {
-            background-color: #f8fafc;
-            color: #64748b;
-            border: 1px solid #e2e8f0;
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 500;
+        /* Animación de entrada */
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Adaptación a celulares */
+        @media (max-width: 600px) {
+            .card-container {
+                padding: 30px 20px;
+                border-radius: 22px;
+            }
+
+            .header-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 18px;
+                margin-bottom: 30px;
+            }
+
+            .header-text h1 {
+                font-size: 1.65rem;
+            }
+
+            .linea {
+                margin: 15px auto 0;
+            }
+
+            .btn-link {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+
+            .btn-content {
+                gap: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <main class="card-container">
-        <div class="header-section">
-            <h1>Entrega de Guías</h1>
-            <p class="nombre">Miguel Angel Meza Panta</p>
-        </div>
 
-        <div class="links-container">
-            <a href="Guia1/santa-rosa-meza/index.html" class="btn-link btn-primary" target="_blank" rel="noopener">
-                <span>Ver Guía 1</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        <!-- Encabezado -->
+        <header class="header-section">
+
+            <div class="header-icon">
+                <svg fill="none" stroke="currentColor"
+                     stroke-width="2" viewBox="0 0 24 24"
+                     aria-hidden="true">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                 </svg>
+            </div>
+
+            <div class="header-text">
+                <h1>Entrega de Guías</h1>
+                <p class="nombre">Miguel Angel Meza Panta</p>
+                <div class="linea"></div>
+            </div>
+
+        </header>
+
+        <!-- Enlaces de las guías -->
+        <nav class="links-container" aria-label="Guías disponibles">
+
+            <a href="Guia1/santa-rosa-meza/index.html"
+               class="btn-link btn-primary"
+               target="_blank" rel="noopener noreferrer">
+                <div class="btn-content">
+                    <div class="icon-box">
+                        <svg class="icon" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ver Guía 1</span>
+                </div>
+                <span class="arrow" aria-hidden="true">❯</span>
             </a>
 
-            <a href="Guia2/santa-rosa-meza/index.html" class="btn-link btn-success" target="_blank" rel="noopener">
-                <span>Ver Guía 2</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
+            <a href="Guia2/santa-rosa-meza/index.html"
+               class="btn-link btn-success"
+               target="_blank" rel="noopener noreferrer">
+                <div class="btn-content">
+                    <div class="icon-box">
+                        <svg class="icon" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ver Guía 2</span>
+                </div>
+                <span class="arrow" aria-hidden="true">❯</span>
             </a>
 
-            <a href="Guia3/santa-rosa-meza/index.html" class="btn-link btn-primary" target="_blank" rel="noopener">
-                <span>Ver Guía 3</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-            </a>
-            
-            <a href="Guia4/santa-rosa-meza/index.html" class="btn-link btn-success" target="_blank" rel="noopener">
-                <span>Ver Guía 4</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
+            <a href="Guia3/santa-rosa-meza/index.html"
+               class="btn-link btn-primary"
+               target="_blank" rel="noopener noreferrer">
+                <div class="btn-content">
+                    <div class="icon-box">
+                        <svg class="icon" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ver Guía 3</span>
+                </div>
+                <span class="arrow" aria-hidden="true">❯</span>
             </a>
 
-            <a href="Guia5/santa-rosa-meza/index-bootstrap.html" class="btn-link btn-primary" target="_blank" rel="noopener">
-                <span>Ver Guía 5</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
+            <a href="Guia4/santa-rosa-meza/index.html"
+               class="btn-link btn-success"
+               target="_blank" rel="noopener noreferrer">
+                <div class="btn-content">
+                    <div class="icon-box">
+                        <svg class="icon" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ver Guía 4</span>
+                </div>
+                <span class="arrow" aria-hidden="true">❯</span>
             </a>
-        </div>
+
+            <a href="Guia5/santa-rosa-meza/index-bootstrap.html"
+               class="btn-link btn-primary"
+               target="_blank" rel="noopener noreferrer">
+                <div class="btn-content">
+                    <div class="icon-box">
+                        <svg class="icon" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ver Guía 5</span>
+                </div>
+                <span class="arrow" aria-hidden="true">❯</span>
+            </a>
+
+        </nav>
+
     </main>
+
 </body>
 </html>
